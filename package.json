@@ -1,0 +1,42 @@
+{
+    "name": "priapus_web",
+    "version": "1.0.0",
+    "description": "Priapus stock rest api",
+    "main": "index.js",
+    "scripts": {
+        "start": "pm2 start ecosystem.config.js",
+        "kill": "pm2 kill",
+        "list": "pm2 list",
+        "nomal": "node ./bin/www",
+        "dev": "nodemon ./bin/www"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cppzeus/Priapus_web.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cppzeus/Priapus_web/issues"
+    },
+    "homepage": "https://github.com/cppzeus/Priapus_web#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    },
+    "dependencies": {
+        "async": "^3.2.0",
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.5",
+        "date-utils": "^1.2.21",
+        "debug": "^4.2.0",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "http": "0.0.1-security",
+        "http-errors": "^1.8.0",
+        "morgan": "^1.10.0",
+        "password-validator": "^5.1.1",
+        "path": "^0.12.7",
+        "pg": "^8.5.0"
+    }
+}
