@@ -24,10 +24,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET stock nation*/
-router.get('/stock/nations', async(req, res, next) => {
+router.get('/stock/country', async(req, res, next) => {
     console.log(`${logtime} /stock:GET/ get stock's nation info api starting...`);
 
-    let query = `SELECT DISTINCT nation FROM "${process.env.DB_MEMBERTABLE}"`;
+    let query = `SELECT DISTINCT country FROM "${process.env.DB_MEMBERTABLE}"`;
 
     await pool.query(query, (err, results) => {
         if (err) {
@@ -60,12 +60,11 @@ router.get('/stock/nations', async(req, res, next) => {
     });
 });
 
-/* GET stock district by nation*/
-router.get('/stock/district/:nation', async(req, res, next) => {
-    console.log(`${logtime} /stock:GET/ get stock's nation info api starting...`);
-    const nation = req.params.nation;
+/* GET stock market*/
+router.get('/stock/market', async(req, res, next) => {
+    console.log(`${logtime} /market:GET/ get stock's market info api starting...`);
 
-    let query = `SELECT DISTINCT district FROM "${process.env.DB_MEMBERTABLE}" WHERE nation = '${nation}'`;
+    let query = `SELECT DISTINCT market FROM "${process.env.DB_MEMBERTABLE}"`;
 
     await pool.query(query, (err, results) => {
         if (err) {
@@ -97,6 +96,46 @@ router.get('/stock/district/:nation', async(req, res, next) => {
         }
     });
 });
+
+/* GET stock list by stock market */
+router.get('/stock/market/:market', async(req, res, next) => {
+    console.log(`${logtime} /market-list:GET/ get stock's company info api starting...`);
+    const market = req.params.market;
+
+    let query = `SELECT ticker, company FROM "${process.env.DB_MEMBERTABLE}" WHERE UPPER(market) like UPPER('%${market}%');`;
+    console.log(`${logtime} /stock:GET/ query => ${query}`);
+
+    await pool.query(query, (err, results) => {
+        if (err) {
+            console.log(`${logtime} /stock:GET/ error => ${err}`);
+            res.status(400).set({
+                'content-Type': 'application/json',
+                'X-Powered-By': 'Sercre',
+                'X-Babylonia-Media-Type': 'Priapus.v1',
+                'Status': '400 Bad Request'
+            }).json({ message: err });
+        } else {
+            if (results.rowCount === 0) {
+                console.log(`${logtime} /stock:GET/ error => Email is not found`);
+                res.status(204).set({
+                    'content-Type': 'application/json',
+                    'X-Powered-By': 'Sercre',
+                    'X-Babylonia-Media-Type': 'Priapus.v1',
+                    'Status': '204 No Content'
+                }).json({ message: "stock's nation is not found" });
+            } else {
+                console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
+                res.status(200).set({
+                    'content-Type': 'application/json',
+                    'X-Powered-By': 'Sercre',
+                    'X-Babylonia-Media-Type': 'Priapus.v1',
+                    'Status': '200 OK'
+                }).json({ message: results.rows });
+            }
+        }
+    });
+});
+
 
 /* GET stock info by stock name*/
 router.get('/stock/company/:company', async(req, res, next) => {
@@ -137,12 +176,52 @@ router.get('/stock/company/:company', async(req, res, next) => {
     });
 });
 
-router.get('/stock/code/:code/nation/:nation', async(req, res, next) => {
+/* GET stock info by stock ticker*/
+router.get('/stock/ticker/:ticker/country/:country', async(req, res, next) => {
     console.log(`${logtime} /stock:GET/ get stock's company info api starting...`);
-    const code = req.params.code;
-    const nation = req.params.nation;
+    const ticker = req.params.ticker;
+    const country = req.params.country;
 
-    let query = `SELECT * FROM "${process.env.DB_MEMBERTABLE}" WHERE UPPER(code) like UPPER('%${code}%') AND UPPER(nation) like UPPER('%${nation}%');`;
+    let query = `SELECT * FROM "${process.env.DB_MEMBERTABLE}" WHERE UPPER(ticker) like UPPER('%${ticker}%') AND UPPER(country) like UPPER('%${country}%');`;
+    console.log(`${logtime} /stock:GET/ query => ${query}`);
+
+    await pool.query(query, (err, results) => {
+        if (err) {
+            console.log(`${logtime} /stock:GET/ error => ${err}`);
+            res.status(400).set({
+                'content-Type': 'application/json',
+                'X-Powered-By': 'Sercre',
+                'X-Babylonia-Media-Type': 'Priapus.v1',
+                'Status': '400 Bad Request'
+            }).json({ message: err });
+        } else {
+            if (results.rowCount === 0) {
+                console.log(`${logtime} /stock:GET/ error => Email is not found`);
+                res.status(204).set({
+                    'content-Type': 'application/json',
+                    'X-Powered-By': 'Sercre',
+                    'X-Babylonia-Media-Type': 'Priapus.v1',
+                    'Status': '204 No Content'
+                }).json({ message: "stock's nation is not found" });
+            } else {
+                console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
+                res.status(200).set({
+                    'content-Type': 'application/json',
+                    'X-Powered-By': 'Sercre',
+                    'X-Babylonia-Media-Type': 'Priapus.v1',
+                    'Status': '200 OK'
+                }).json({ message: results.rows });
+            }
+        }
+    });
+});
+
+/* GET stock addition info by stock ticker for korea stock*/
+router.get('/stock/addinfo/:ticker', async(req, res, next) => {
+    console.log(`${logtime} /stock:GET/ get stock's additional info api starting...`);
+    const ticker = req.params.ticker;
+
+    let query = `SELECT A.ticker, A.company, to_json(B) AS additional_info FROM "${process.env.DB_MEMBERTABLE}" A,"${process.env.DB_MEMBERINFOTABLE}" B WHERE UPPER(A.ticker) = UPPER(B.ticker) AND UPPER(A.ticker) like UPPER('%${ticker}%');`;
     console.log(`${logtime} /stock:GET/ query => ${query}`);
 
     await pool.query(query, (err, results) => {
