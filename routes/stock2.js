@@ -49,6 +49,7 @@ router.get('/common/market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -86,6 +87,7 @@ router.get('/common/sector', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -124,6 +126,7 @@ router.get('/common/sector/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -163,6 +166,7 @@ router.get('/common/sector/industry/:industry', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -200,6 +204,7 @@ router.get('/common/industry', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -239,6 +244,7 @@ router.get('/common/industry/sector/:sector', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -278,6 +284,7 @@ router.get('/common/industry/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -317,6 +324,7 @@ router.get('/stock', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -356,6 +364,7 @@ router.get('/stock/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -396,6 +405,7 @@ router.get('/stock/market/:market/sector/:sector', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -436,6 +446,7 @@ router.get('/stock/market/:market/industry/:industry', async(req, res, next) => 
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -475,6 +486,7 @@ router.get('/stock/ticker/:ticker', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -514,6 +526,7 @@ router.get('/stock/company/:company', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -553,6 +566,7 @@ router.get('/stock/add/ticker/:ticker', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -593,6 +607,7 @@ router.get('/stock/add/company/:company', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -631,6 +646,7 @@ router.get('/stock/issues', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -671,6 +687,7 @@ router.get('/stock/issues/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -709,6 +726,7 @@ router.get('/stock/disclousure', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -749,6 +767,7 @@ router.get('/stock/disclousure/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -787,6 +806,7 @@ router.get('/stock/assets', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -827,6 +847,7 @@ router.get('/stock/assets/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -865,6 +886,7 @@ router.get('/stock/foreign', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -905,6 +927,7 @@ router.get('/stock/foreign/market/:market', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -944,6 +967,7 @@ router.get('/stock/bluechip', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -982,6 +1006,7 @@ router.get('/stock/venture', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1020,6 +1045,7 @@ router.get('/stock/middle', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1058,6 +1084,7 @@ router.get('/stock/techgrow', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1096,6 +1123,7 @@ router.get('/stock/krx100', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1134,6 +1162,7 @@ router.get('/stock/kospi200', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1172,6 +1201,7 @@ router.get('/stock/star30', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
@@ -1210,6 +1240,7 @@ router.get('/stock/premier', async(req, res, next) => {
                 console.log(`${logtime} /stock:GET/ succeed => ${results.rows.length}`);
                 res.status(200).set({
                     'content-Type': 'application/json',
+                    'content-Count': `${results.rows.length}`,
                     'X-Powered-By': 'Sercre',
                     'X-Babylonia-Media-Type': 'Priapus.v1',
                     'Status': '200 OK'
