@@ -179,6 +179,7 @@ router.get('/stock/company/:company', async(req, res, next) => {
 /* GET stock info by stock ticker*/
 router.get('/stock/ticker/:ticker/country/:country', async(req, res, next) => {
     console.log(`${logtime} /stock:GET/ get stock's company info api starting...`);
+
     const ticker = req.params.ticker;
     const country = req.params.country;
 
